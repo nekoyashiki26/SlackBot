@@ -1,3 +1,3 @@
-# SlackBott
+# SlackBot
 
 slack bot作ってみた
