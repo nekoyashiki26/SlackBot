@@ -22,17 +22,13 @@ EM.run do
   end
 
   # RTM APIから情報を受け取った時の処理
-  ws.on :message do |event|
-    p [:message, JSON.parse(event.data)]
-  end
-
   # 接続が切断した時の処理
   ws.on :close do
     p [:close, event.code]
     ws = nil
     EM.stop
   end
-  
+
   ws.on :message do |event|
     data = JSON.parse(event.data)
     p [:message, data]
