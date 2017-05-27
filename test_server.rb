@@ -9,9 +9,7 @@ response = HTTP.post("https://slack.com/api/rtm.start", params: {
 })
 
 rc = JSON.parse(response.body)
-
 url = rc['url']
-
 EM.run do
   # Web Socketインスタンスの立ち上げ
   ws = Faye::WebSocket::Client.new(url)
