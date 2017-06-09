@@ -33,24 +33,24 @@ EM.run do
     data = JSON.parse(event.data)
     p [:message, data]
 
-    if data['text'] == 'こんにちは'
+    if data['text'] == 'こんにちは' then
       ws.send({
         type: 'message',
-        text: "こんにちは <@#{data['user']}> さん",
+        text: "こんにちは <@#{data['user']}> ",
+        channel: data['channel']
+      }.to_json)
+    elsif data['text'] == 'こんばんは' then
+      ws.send({
+        type: 'message',
+        text: "こんばんは <@#{data['user']}> ",
+        channel: data['channel']
+        }.to_json)
+    elsif data['text'] == 'おはよう' then
+      ws.send({
+        type: 'message',
+        text: "こんにちは <@#{data['user']}> ",
         channel: data['channel']
       }.to_json)
     end
   end
-  ws.on :message do |event|
-    data = JSON.parse(event.data)
-    p [:message, data]
-
-    if data['text'] == 'こんばんは'
-      ws.send({
-        type: 'message',
-        text: "こんばんは <@#{data['user']}> さん",
-        channel: data['channel']
-        }.to_json)
-      end
-    end
 end
