@@ -48,7 +48,7 @@ EM.run do
     elsif data['text'] == 'おはよう' then
       webSocket.send({
         type: 'message',
-        text: "こんにちは <@#{data['user']}> ",
+        text: "おはよう <@#{data['user']}> ",
         channel: data['channel']
       }.to_json)
     elsif data['text'] == '' then
